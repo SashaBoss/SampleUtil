@@ -1,6 +1,5 @@
 ﻿namespace SampleUtil.Tests
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

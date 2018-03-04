@@ -1,5 +1,7 @@
 ﻿namespace SampleUtil
 {
+    using System;
+    using System.Threading.Tasks;
     using System.IO;
 
     public class Util
@@ -15,11 +17,11 @@
             _processorFactory = new ActionProcessorFactory();
         }
 
-        public void Run(string[] commandLineArgs)
+        public async void Run(string[] commandLineArgs)
         {
             CreateArguments(commandLineArgs);
             SetupProcessor();
-            ProcessFiles(_arguments.BaseFolerPath);
+            await ProcessFiles(_arguments.BaseFolerPath);
         }
 
         private void SetupProcessor()
@@ -27,18 +29,26 @@
             _processor = _processorFactory.GetProcessor(_arguments.ActionType);
         }
 
-        private void ProcessFiles(string directory)
+        private Task ProcessFiles(string directory)
         {
-            foreach (var file in Directory.GetFiles(directory))
+            return Task.Run(async () =>
             {
-                var processedPath = _processor.ProcessFile(file);
-                WriteToResultFile(processedPath);
-            }
+                if (!Directory.Exists(directory))
+                {
+                    throw new ArgumentException();
+                }
 
-            foreach (var d in Directory.GetDirectories(directory))
-            {
-                ProcessFiles(d);
-            }
+                foreach (var file in Directory.GetFiles(directory))
+                {
+                    var processedPath = _processor.ProcessFile(file);
+                    WriteToResultFile(processedPath);
+                }
+
+                foreach (var d in Directory.GetDirectories(directory))
+                {
+                    await ProcessFiles(d);
+                }
+            });
         }
 
         private void WriteToResultFile(string processedPath)
