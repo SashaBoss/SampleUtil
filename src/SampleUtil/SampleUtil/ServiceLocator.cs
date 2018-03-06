@@ -1,9 +1,8 @@
-﻿using SampleUtil.Processors;
-
-namespace SampleUtil
+﻿namespace SampleUtil
 {
     using Unity;
     using System;
+    using Processors;
 
     public sealed class ServiceLocator
     {
