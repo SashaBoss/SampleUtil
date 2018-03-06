@@ -75,19 +75,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionProcessorFactory.cs" />
-    <Compile Include="ActionType.cs" />
-    <Compile Include="AllProcessor.cs" />
-    <Compile Include="CppProcessor.cs" />
-    <Compile Include="ActionProcessor.cs" />
-    <Compile Include="Reversed1Processor.cs" />
-    <Compile Include="Reversed2Processor.cs" />
+    <Compile Include="Processors\AllProcessor.cs" />
+    <Compile Include="Processors\CppProcessor.cs" />
+    <Compile Include="Processors\IActionProcessor.cs" />
+    <Compile Include="Processors\Reversed1Processor.cs" />
+    <Compile Include="Processors\Reversed2Processor.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="UtilArguments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtilArgumentsFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,4 +1,4 @@
-﻿namespace SampleUtil
+﻿namespace SampleUtil.Processors
 {
     public interface IActionProcessor
     {

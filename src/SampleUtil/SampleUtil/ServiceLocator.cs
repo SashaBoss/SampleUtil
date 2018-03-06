@@ -1,4 +1,6 @@
-﻿namespace SampleUtil
+﻿using SampleUtil.Processors;
+
+namespace SampleUtil
 {
     using Unity;
     using System;

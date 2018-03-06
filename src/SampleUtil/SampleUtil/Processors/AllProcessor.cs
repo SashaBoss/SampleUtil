@@ -1,12 +1,10 @@
-﻿namespace SampleUtil
+﻿namespace SampleUtil.Processors
 {
-    using System;
-
     public class AllProcessor : IActionProcessor
     {
         public string ProcessFile(string filePath)
         {
-            throw new NotImplementedException();
+            return filePath;
         }
     }
 }

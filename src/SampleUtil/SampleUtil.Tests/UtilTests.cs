@@ -8,10 +8,10 @@
         [TestMethod]
         public void Process_ValidArgs_FilesProcessed()
         {
-            string basePath = "E:/SampleUtilTestFolder";
+            string basePath = @"E:\SampleUtilTestFolder";
             string actionName = "reversed2";
-
-            string[] args = { basePath, actionName };
+            string resultFolderPath = @"E:\output.txt";
+            string[] args = { basePath, actionName, resultFolderPath };
 
             new Util().Run(args);
         }
