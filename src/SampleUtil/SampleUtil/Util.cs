@@ -32,7 +32,7 @@
 
                     if (!string.IsNullOrEmpty(processedPath))
                     {
-                        WriteToResultFile(processedPath);
+                        await WriteToResultFile(processedPath);
                     }
                 }
 
@@ -43,11 +43,11 @@
             });
         }
 
-        private void WriteToResultFile(string processedPath)
+        private async Task WriteToResultFile(string processedPath)
         {
             using (var writer = new StreamWriter(_arguments.ResultFilePath, true))
             {
-                writer.WriteLine(processedPath);
+                await writer.WriteLineAsync(processedPath);
             }
         }
     }
