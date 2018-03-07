@@ -18,7 +18,6 @@
 
         private void ProcessFiles(string directory)
         {
-
             if (!Directory.Exists(directory))
             {
                 throw new ArgumentException();
